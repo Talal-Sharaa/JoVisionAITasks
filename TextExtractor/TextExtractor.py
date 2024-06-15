@@ -2,7 +2,7 @@ import sys
 import cv2
 import numpy as np
 import easyocr
-
+import os
 def preprocess_image(image_path):
     image = cv2.imread(image_path)
     if image is None:
@@ -10,7 +10,7 @@ def preprocess_image(image_path):
     gray = cv2.cvtColor(image, cv2.COLOR_BGR2GRAY)
     contrast = cv2.convertScaleAbs(gray, alpha=1.5, beta=0)
     thresh = cv2.adaptiveThreshold(contrast, 255, cv2.ADAPTIVE_THRESH_GAUSSIAN_C, cv2.THRESH_BINARY, 11, 2)
-    preprocessed_image_path = "preprocessed_image.png"
+    preprocessed_image_path = "preprocessed_"+os.path.splitext(os.path.basename(image_path))[0]+".png"
     cv2.imwrite(preprocessed_image_path, thresh)
 
     return preprocessed_image_path
