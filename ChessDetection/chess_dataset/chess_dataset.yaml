@@ -1,0 +1,5 @@
+train: C:/Users/talal/Downloads/JoVisionAITasks/ChessDetection/chess_dataset/train/images
+val: C:/Users/talal/Downloads/JoVisionAITasks/ChessDetection/chess_dataset/val/images
+
+nc: 6
+names: [bishop, king, knight, pawn, queen, rook]
